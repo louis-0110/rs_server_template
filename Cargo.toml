@@ -1,0 +1,21 @@
+[package]
+name = "playground_rs"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["server"]
+
+[workspace.dependencies]
+axum = { version = "0.7", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12" }
+tracing = "*"
+tracing-subscriber = { version = "*", features = [
+    "env-filter",
+    "chrono",
+    "local-time",
+    "time",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1" }
