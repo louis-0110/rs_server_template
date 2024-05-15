@@ -1,17 +1,14 @@
-[package]
-name = "playground_rs"
-version = "0.1.0"
-edition = "2021"
-
 [workspace]
-members = ["server"]
+resolver = "2"
+members = ["client", "server"]
+default-members = ["server", "client"]
 
 [workspace.dependencies]
 axum = { version = "0.7", features = ["json"] }
 tokio = { version = "1", features = ["full"] }
 reqwest = { version = "0.12" }
-tracing = "*"
-tracing-subscriber = { version = "*", features = [
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = [
     "env-filter",
     "chrono",
     "local-time",
@@ -19,3 +16,4 @@ tracing-subscriber = { version = "*", features = [
 ] }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
+dotenvy = { version = "0.15.7" }
